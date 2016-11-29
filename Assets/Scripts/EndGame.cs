@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class EndGame : MonoBehaviour {
 
 	//Called when a box collider trigger is activated
-    void OnTriggerEnter2D()
+    void OnTriggerEnter2D(Collider2D collisionInfo)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if(collisionInfo.CompareTag("Collidable"))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
